@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- Fig. 27.27: email.html --> 
+<HTML>
+<HEAD>
+   <TITLE>Anonymous Feedback</TITLE>
+
+<script type="text/javascript">
+
+function check() {
+  var course = document.getElementById('course');
+  var message = document.getElementById('message');
+  if(course.value.length == 0) {
+    alert('Please enter the course this message relates to, otherwise, enter NA');
+    document.getElementById('course').focus();
+    return false;
+  } else if(message.value.length == 0) {
+    alert('Please enter a message');
+    document.getElementById('message').focus();
+    return false;
+  } else {
+    emailForm.submit();
+  }
+  
+}
+</script>
+</HEAD>
+
+<body>
+<H1>Anonymous Feedback</H1>
+
+<form id="emailForm" action="mail.php" method="post">
+   <input name="machineFoo" style="display: none"/>
+   <label for="machineFoo" style="display: none">If you are a human, don't fill out this field!</label> 
+   <TABLE BORDER = "0" CELLSPACING = "0" CELLPADING = "0">
+
+      <TR>
+         <TD BGCOLOR = #DDDDDD COLSPAN = 3>
+         </TD>
+      </TR>
+
+      <TR>
+         <TD BGCOLOR = #DDDDDD WIDTH = "10%"><STRONG>
+         <FONT FACE = "Arial" SIZE = "2">To:&nbsp;</FONT>
+         </STRONG>
+         </TD>
+	   <TD BGCOLOR = #DDDDDD> sbehera@cse.unl.edu</TD>
+      </TR>
+
+      <TR>
+         <TD BGCOLOR = #DDDDDD>
+         <P><FONT FACE = Arial SIZE = 2>
+         <STRONG>From:</STRONG>
+         </FONT></P>
+         </TD>
+         <TD BGCOLOR = #DDDDDD><INPUT NAME = "from">(optional)
+         </TD>
+      </TR>
+
+      <TR>
+	 <TD BGCOLOR = #DDDDDD>
+         <P><FONT FACE = Arial SIZE = 2>
+         <STRONG>Course:</STRONG>
+         </FONT></P>
+         </TD>
+         <TD BGCOLOR = #DDDDDD><INPUT id="course" NAME = "course"/>(required)
+         </TD>
+      </TR>
+
+
+      <TR>
+         <TD BGCOLOR = #DDDDDD>
+         <P><FONT FACE = Arial SIZE = 2>
+         <STRONG>Subject:</STRONG>
+         </FONT></P>
+         </TD>
+         <TD BGCOLOR = #DDDDDD><INPUT NAME = "subject">
+         </TD>
+      </TR>
+
+      <TR>
+         <TD BGCOLOR = #DDDDDD COLSPAN = 3>
+         <P>
+         <STRONG><FONT FACE = "Arial" SIZE = "2"><BR>Message:
+         </FONT>
+         </STRONG><BR>
+         <TEXTAREA COLS = 50 NAME = "message" ROWS = 6 
+         STYLE = "HEIGHT: 170px; WIDTH: 538px" id = "message"></TEXTAREA>
+         </P><P>&nbsp;</P>
+         </TD>
+      </TR>
+
+   </TABLE>
+<INPUT ID="SubmitButton" TYPE="button" value="Send" onclick="check()">
+   </FORM>
+</HTML>
